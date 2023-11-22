@@ -18,7 +18,7 @@ public class Logger
         var logMessage = _pool.Get();
         
         logMessage.Message = message;
-        logMessage.Sysdate = DateTime.Now;
+        logMessage.Sysdate = DateTime.UtcNow; // timezone independent
         
         Console.WriteLine($"LOG::{logMessage.Sysdate}::{logMessage.Message}");
         
