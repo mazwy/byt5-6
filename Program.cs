@@ -1,3 +1,4 @@
+using byt5_6.Mediator;
 using byt5_6.ObjectPool;
 using byt5_6.ResponsibilityDesign;
 using byt5_6.ResponsibilityDesign.Operations;
@@ -52,6 +53,30 @@ public class Program
         division.Handle(multiply);
         division.Handle(subtract);
         division.Handle(add);
+        
+        #endregion
+
+        #region SmartHome-MediatorPattern
+
+        var hub = new Hub();
+        var bulb = new Bulb(hub, "Bulb1");
+        var thermostat = new Thermostat(hub, "Thermostat1");
+        
+        hub.AddDevice(bulb);
+        hub.AddDevice(thermostat);
+        
+        bulb.TurnOn();
+        
+        thermostat.SetTemp(28);
+
+        const string bulbMessage = "Bulb says hello";
+        const string thermostatMessage = "Thermostat says hello";
+        const string hubMessage = "Hub says hello";
+        
+        hub.Send(bulb, hubMessage);
+        
+        bulb.Send(bulbMessage);
+        thermostat.Send(thermostatMessage);
         
         #endregion
         
