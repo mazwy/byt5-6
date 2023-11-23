@@ -6,7 +6,7 @@ namespace byt5_6.ResponsibilityDesign;
 public class OperationModel
 {
     public char Operator { get; init; }
-    public int Number1 { get; init; }
-    public int Number2 { get; init; }
-    public int Result { get; set; }
+    public double Number1 { get; init; }
+    public double Number2 { get; init; }
+    public double Result { get; set; }
 }
